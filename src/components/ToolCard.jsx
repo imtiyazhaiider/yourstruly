@@ -12,16 +12,20 @@ function ToolCard({ tool, featured = false }) {
       {/* Hover glow */}
       <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-white/[0.025] blur-3xl transition-all duration-500 group-hover:bg-white/[0.07]" />
 
-      {/* Top line */}
+      {/* Top highlight */}
       <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
+      {/* Header */}
       <div className="relative flex items-start justify-between">
         <div
           className={`flex items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-white/65 transition-all duration-300 group-hover:border-white/15 group-hover:bg-white/[0.08] group-hover:text-white ${
             featured ? "h-14 w-14" : "h-12 w-12"
           }`}
         >
-          <Icon size={featured ? 21 : 19} strokeWidth={1.7} />
+          <Icon
+            size={featured ? 21 : 19}
+            strokeWidth={1.7}
+          />
         </div>
 
         <div className="flex items-center gap-2">
@@ -38,6 +42,7 @@ function ToolCard({ tool, featured = false }) {
         </div>
       </div>
 
+      {/* Content */}
       <div className="relative mt-7">
         <p className="mb-2 text-[9px] uppercase tracking-[0.2em] text-white/20">
           {tool.category}
@@ -56,6 +61,7 @@ function ToolCard({ tool, featured = false }) {
         </p>
       </div>
 
+      {/* Technologies */}
       <div className="relative mt-5 flex flex-wrap gap-1.5">
         {tool.technologies.map((technology) => (
           <span
@@ -67,27 +73,31 @@ function ToolCard({ tool, featured = false }) {
         ))}
       </div>
 
+      {/* Actions */}
       <div className="relative mt-auto flex items-center gap-2 pt-7">
         {tool.url && tool.url !== "#" ? (
           <a
             href={tool.url}
             target="_blank"
-            rel="noreferrer"
-            className="group/button flex flex-1 items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-xs font-medium text-black transition-all duration-300 hover:bg-white/90"
+            rel="noopener noreferrer"
+            className="group/open flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-white px-4 text-xs font-semibold !text-black transition-all duration-300 hover:bg-white/90"
           >
-            Open tool
+            <span className="!text-black">
+              Open Tool
+            </span>
 
             <ArrowUpRight
               size={14}
-              className="transition-transform group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5"
+              className="!text-black transition-transform duration-300 group-hover/open:-translate-y-0.5 group-hover/open:translate-x-0.5"
             />
           </a>
         ) : (
           <button
+            type="button"
             disabled
-            className="flex flex-1 cursor-not-allowed items-center justify-center rounded-xl bg-white/[0.07] px-4 py-3 text-xs font-medium text-white/20"
+            className="flex h-11 flex-1 cursor-not-allowed items-center justify-center rounded-xl bg-white/[0.07] px-4 text-xs font-medium text-white/20"
           >
-            Coming soon
+            Coming Soon
           </button>
         )}
 
@@ -95,11 +105,11 @@ function ToolCard({ tool, featured = false }) {
           <a
             href={tool.github}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={`${tool.name} GitHub`}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] text-white/30 transition-all hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] text-white/30 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
           >
-            <Github size={15} />
+            <Github size={16} />
           </a>
         )}
       </div>
