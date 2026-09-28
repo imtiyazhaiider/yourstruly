@@ -109,20 +109,7 @@ export const tools = [
     featured: false,
   },
 
-  {
-    id: "snake-game",
-    name: "Snake Game",
-    description:
-      "A simple browser-based take on the classic Snake game.",
-    category: "Games",
-    status: "Live",
-    icon: Gamepad2,
-    url: "#",
-    github: "https://github.com/imtiyazhaiider/snake-game",
-    technologies: ["JavaScript", "HTML", "CSS"],
-    featured: false,
-  },
-
+ 
   {
     id: "karbala",
     name: "Karbala",
